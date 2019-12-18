@@ -1,6 +1,6 @@
 package com.example.oop_3
 
-class Team (var id: Int) {
+class Team (var name: String) {
     var players: ArrayList<Player> = arrayListOf()
 
     var countOfPlayers = players.size

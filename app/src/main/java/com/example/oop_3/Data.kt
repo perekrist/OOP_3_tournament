@@ -14,7 +14,7 @@ var players: ArrayList<Player> = arrayListOf(
 )
 
 var teams: ArrayList<Team> = arrayListOf(
-    Team(0),
-    Team(1),
-    Team(2)
+    Team("Team 0"),
+    Team("Team 1"),
+    Team("Team 3")
 )

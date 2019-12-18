@@ -4,10 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.oop_3.Player
 import com.example.oop_3.R
 import com.example.oop_3.Team
-import kotlinx.android.synthetic.main.player_item.view.*
 import kotlinx.android.synthetic.main.team_item.view.*
 
 class TeamsAdapter(var items: ArrayList<Team>, val callback: Callback) : RecyclerView.Adapter<TeamsAdapter.MainHolder>() {
@@ -23,7 +21,7 @@ class TeamsAdapter(var items: ArrayList<Team>, val callback: Callback) : Recycle
 
     inner class MainHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Team) {
-            itemView.team_name.text = "Team ${item.id}"
+            itemView.team_name.text = item.name
             itemView.team_wins.text = item.countOfWins.toString()
             itemView.team_players.text = "${item.countOfPlayers} / 5"
             itemView.setOnClickListener {
