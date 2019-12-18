@@ -1,16 +1,15 @@
 package com.example.oop_3.ui.teams
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.oop_3.*
-import kotlinx.android.synthetic.main.fragment_players.*
 import kotlinx.android.synthetic.main.fragment_teams.*
 
 class TeamsFragment : Fragment() {
@@ -28,7 +27,10 @@ class TeamsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val myAdapter = TeamsAdapter(teams, object : TeamsAdapter.Callback {
             override fun onItemClicked(item: Team) {
-                Toast.makeText(context, item.name, Toast.LENGTH_SHORT).show()
+                val intent = Intent(context, TeamDescription::class.java).apply {
+                    putExtra("team_id", item.id.toString())
+                }
+                startActivity(intent)
             }
         })
         rv_teams.adapter = myAdapter
@@ -41,10 +43,11 @@ class TeamsFragment : Fragment() {
             val editText = dialogLayout.findViewById<EditText>(R.id.editText)
             builder.setView(dialogLayout)
             builder.setPositiveButton("OK") { _, _ ->
+                teams.add(Team(teams.size))
                 if (editText.text.isEmpty()) {
-                    teams.add(Team("Team ${teams.size + 1}"))
+                    teams[teams.size - 1].name = "Team ${teams[teams.size - 1].id}"
                 } else
-                    teams.add(Team(editText.text.toString()))
+                    teams[teams.size - 1].name = editText.text.toString()
                 rv_teams.adapter = myAdapter
             }
             builder.show()

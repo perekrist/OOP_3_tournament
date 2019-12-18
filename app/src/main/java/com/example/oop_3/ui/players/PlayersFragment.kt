@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.oop_3.Player
 import com.example.oop_3.R
 import com.example.oop_3.players
+import com.example.oop_3.teams
 import kotlinx.android.synthetic.main.fragment_players.*
 import kotlinx.android.synthetic.main.fragment_players.view.*
 
@@ -33,6 +34,9 @@ class PlayersFragment : Fragment() {
                 Toast.makeText(context, "${item.name}", Toast.LENGTH_SHORT).show()
             }
         })
+        for (i in players) {
+            i.setTeam((0 until teams.size).random())
+        }
         rv_players.adapter = myAdapter
         rv_players.layoutManager = LinearLayoutManager(this.requireContext())
         add_player.setOnClickListener {
