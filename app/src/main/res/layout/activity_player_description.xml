@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.teams.TeamDescription">
+    tools:context=".ui.players.PlayerDescription">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -15,15 +15,15 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/team_name_d"
+            android:id="@+id/player_name_d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Team 0"
+            android:text="Player 0"
             android:textSize="40sp" />
 
         <TextView
-            android:id="@+id/team_wins_d"
+            android:id="@+id/player_wins_d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -31,19 +31,28 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/team_players_d"
+            android:id="@+id/player_goals_d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Players: 0 / 5"
+            android:text="Goals: 0"
             android:textSize="30sp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginStart="20dp"
-            android:id="@+id/rv_team_players"
+        <TextView
+            android:id="@+id/player_number_d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:padding="10dp"
+            android:text="Number: 0"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/player_team_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Team: Team 0"
+            android:textSize="30sp" />
 
     </LinearLayout>
 

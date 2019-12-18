@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.oop_3.*
+import com.example.oop_3.classes.Team
 import kotlinx.android.synthetic.main.fragment_teams.*
 
 class TeamsFragment : Fragment() {
@@ -25,6 +26,7 @@ class TeamsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        update()
         val myAdapter = TeamsAdapter(teams, object : TeamsAdapter.Callback {
             override fun onItemClicked(item: Team) {
                 val intent = Intent(context, TeamDescription::class.java).apply {
@@ -35,6 +37,7 @@ class TeamsFragment : Fragment() {
         })
         rv_teams.adapter = myAdapter
         rv_teams.layoutManager = LinearLayoutManager(this.requireContext())
+        rv_teams.adapter = myAdapter
         add_team.setOnClickListener {
             val builder = AlertDialog.Builder(context!!)
             val inflater = layoutInflater
@@ -49,9 +52,38 @@ class TeamsFragment : Fragment() {
                 } else
                     teams[teams.size - 1].name = editText.text.toString()
                 rv_teams.adapter = myAdapter
+                update()
             }
             builder.show()
             rv_teams.adapter = myAdapter
+            update()
+        }
+    }
+
+    fun update() {
+        val availableTeams = arrayListOf<Team>()
+        for (i in teams) {
+            if (i.countOfPlayers!! < i.maxPlayers) {
+                availableTeams.add(i)
+            }
+        }
+        for (i in players) {
+            if (i.teamId == -1) {
+                val r = (0 until availableTeams.size).random()
+                i.setTeam(availableTeams[r].id)
+            }
+        }
+        for (i in teams) {
+            if (i.countOfPlayers == i.maxPlayers) {
+                continue
+            } else {
+                i.teamPlayers.clear()
+                for (j in players) {
+                    if (j.teamId == i.id) {
+                        i.teamPlayers.add(j)
+                    }
+                }
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.oop_3.ui.players
+package com.example.oop_3.ui.tournament
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,12 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oop_3.classes.Player
 import com.example.oop_3.R
+import com.example.oop_3.classes.Tournament
 import kotlinx.android.synthetic.main.player_item.view.*
+import kotlinx.android.synthetic.main.tournament_item.view.*
 
-class PlayersAdapter(var items: ArrayList<Player>, val callback: Callback) : RecyclerView.Adapter<PlayersAdapter.MainHolder>() {
+class TournametsAdapter(var items: ArrayList<Tournament>, val callback: Callback) : RecyclerView.Adapter<TournametsAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
-            = MainHolder(LayoutInflater.from(parent.context).inflate(R.layout.player_item, parent, false))
+            = MainHolder(LayoutInflater.from(parent.context).inflate(R.layout.tournament_item, parent, false))
 
     override fun getItemCount() = items.size
 
@@ -20,11 +22,8 @@ class PlayersAdapter(var items: ArrayList<Player>, val callback: Callback) : Rec
     }
 
     inner class MainHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: Player) {
-            itemView.player_name.text = item.name
-            itemView.player_number.text = item.num.toString()
-            itemView.player_goals.text = item.countOfGames.toString()
-            itemView.player_games.text = item.countOfGoals.toString()
+        fun bind(item: Tournament) {
+            itemView.tournament_id.text = "ID: ${item.id}"
             itemView.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) callback.onItemClicked(items[adapterPosition])
             }
@@ -32,7 +31,7 @@ class PlayersAdapter(var items: ArrayList<Player>, val callback: Callback) : Rec
     }
 
     interface Callback {
-        fun onItemClicked(item: Player)
+        fun onItemClicked(item: Tournament)
     }
 
 }

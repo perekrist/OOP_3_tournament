@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oop_3.R
-import com.example.oop_3.Team
+import com.example.oop_3.classes.Team
 import kotlinx.android.synthetic.main.team_item.view.*
 
 class TeamsAdapter(var items: ArrayList<Team>, val callback: Callback) : RecyclerView.Adapter<TeamsAdapter.MainHolder>() {
@@ -23,7 +23,7 @@ class TeamsAdapter(var items: ArrayList<Team>, val callback: Callback) : Recycle
         fun bind(item: Team) {
             itemView.team_name.text = item.name
             itemView.team_wins.text = item.countOfWins.toString()
-            itemView.team_players.text = "${item.countOfPlayers} / 5"
+            itemView.team_players.text = "${item.teamPlayers.size} / 5"
             itemView.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) callback.onItemClicked(items[adapterPosition])
             }

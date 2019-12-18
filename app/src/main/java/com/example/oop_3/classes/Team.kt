@@ -1,4 +1,4 @@
-package com.example.oop_3
+package com.example.oop_3.classes
 
 class Team(var id: Int) {
     var name = ""
@@ -7,13 +7,11 @@ class Team(var id: Int) {
     var countOfPlayers: Int? = null
     var countOfWins : Int? = null
 
+     val maxPlayers = 5
+
     init {
         name = "Team $id"
-        countOfPlayers = players.size
+        countOfPlayers = teamPlayers.size
         countOfWins = 0
-    }
-
-    fun addPlayer(player: Player) {
-        teamPlayers.add(player)
     }
 }
