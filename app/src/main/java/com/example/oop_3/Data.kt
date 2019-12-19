@@ -1,8 +1,8 @@
 package com.example.oop_3
 
-import com.example.oop_3.classes.Player
-import com.example.oop_3.classes.Team
-import com.example.oop_3.classes.Tournament
+import com.example.oop_3.ui.players.Player
+import com.example.oop_3.ui.teams.Team
+import com.example.oop_3.ui.tournament.Tournament
 
 var players: ArrayList<Player> = arrayListOf(
     Player(0, "John"),
@@ -24,7 +24,6 @@ var teams: ArrayList<Team> = arrayListOf(
 )
 
 var tournaments: ArrayList<Tournament> = arrayListOf(
-    Tournament(0),
-    Tournament(1),
-    Tournament(2)
+    Tournament(0)
 )
+

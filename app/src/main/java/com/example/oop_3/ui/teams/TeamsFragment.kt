@@ -10,7 +10,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.oop_3.*
-import com.example.oop_3.classes.Team
 import kotlinx.android.synthetic.main.fragment_teams.*
 
 class TeamsFragment : Fragment() {

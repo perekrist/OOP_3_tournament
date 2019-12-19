@@ -1,4 +1,6 @@
-package com.example.oop_3.classes
+package com.example.oop_3.ui.teams
+
+import com.example.oop_3.ui.players.Player
 
 class Team(var id: Int) {
     var name = ""

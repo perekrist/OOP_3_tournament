@@ -7,14 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.oop_3.classes.Player
 import com.example.oop_3.R
-import com.example.oop_3.classes.Tournament
-import com.example.oop_3.players
 import com.example.oop_3.tournaments
-import com.example.oop_3.ui.players.PlayerDescription
-import com.example.oop_3.ui.players.PlayersAdapter
-import kotlinx.android.synthetic.main.fragment_players.*
 import kotlinx.android.synthetic.main.fragment_tournament.*
 
 class TournamentFragment : Fragment() {
@@ -32,10 +26,10 @@ class TournamentFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val myAdapter = TournametsAdapter(tournaments, object : TournametsAdapter.Callback {
             override fun onItemClicked(item: Tournament) {
-//                val intent = Intent(context, PlayerDescription::class.java).apply {
-//                    putExtra("player_id", item.id.toString())
-//                }
-//                startActivity(intent)
+                val intent = Intent(context, TournamentDescription::class.java).apply {
+                    putExtra("match_id", item.id.toString())
+                }
+                startActivity(intent)
             }
         })
         rv_tournament.adapter = myAdapter

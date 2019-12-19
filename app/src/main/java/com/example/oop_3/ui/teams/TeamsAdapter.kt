@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oop_3.R
-import com.example.oop_3.classes.Team
 import kotlinx.android.synthetic.main.team_item.view.*
 
 class TeamsAdapter(var items: ArrayList<Team>, val callback: Callback) : RecyclerView.Adapter<TeamsAdapter.MainHolder>() {

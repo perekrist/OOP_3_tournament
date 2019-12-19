@@ -4,10 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.oop_3.classes.Player
 import com.example.oop_3.R
-import com.example.oop_3.classes.Tournament
-import kotlinx.android.synthetic.main.player_item.view.*
 import kotlinx.android.synthetic.main.tournament_item.view.*
 
 class TournametsAdapter(var items: ArrayList<Tournament>, val callback: Callback) : RecyclerView.Adapter<TournametsAdapter.MainHolder>() {

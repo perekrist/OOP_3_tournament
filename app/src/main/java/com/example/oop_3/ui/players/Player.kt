@@ -1,4 +1,4 @@
-package com.example.oop_3.classes
+package com.example.oop_3.ui.players
 
 class Player (Number: Int, Name: String) {
     var num: Int? = null

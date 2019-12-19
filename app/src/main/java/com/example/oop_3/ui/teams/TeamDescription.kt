@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.oop_3.*
-import com.example.oop_3.classes.Player
+import com.example.oop_3.ui.players.Player
 import com.example.oop_3.ui.players.PlayerDescription
 import com.example.oop_3.ui.players.PlayersAdapter
 import kotlinx.android.synthetic.main.activity_team_description.*

@@ -4,19 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".ui.match.MatchEditing"
     android:padding="8dp">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_tournament"
+        android:id="@+id/rv_current_match"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_tournament"
+        android:id="@+id/add_event"
         android:layout_margin="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
