@@ -20,9 +20,10 @@ class MatchAdapter(var items: ArrayList<Event>, val callback: Callback) : Recycl
 
     inner class MainHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Event) {
-            itemView.event_name.text = "${item.name} $adapterPosition"
+            itemView.event_name.text = "${item.name}"
             itemView.event_time.text = item.time.toString()
-            itemView.event_player.text = item.player
+            itemView.event_player1.text = item.player1
+            itemView.event_player2.text = item.player2
             itemView.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) callback.onItemClicked(items[adapterPosition])
             }

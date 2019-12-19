@@ -21,11 +21,19 @@
         android:textSize="30sp"/>
 
     <TextView
-        android:id="@+id/event_player"
+        android:id="@+id/event_player1"
         android:layout_marginStart="10dp"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Player 0"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/event_player2"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="---"
         android:textSize="30sp"/>
 
 </LinearLayout>

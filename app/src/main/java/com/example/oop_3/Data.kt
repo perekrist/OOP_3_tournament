@@ -20,12 +20,13 @@ var players: ArrayList<Player> = arrayListOf(
 var teams: ArrayList<Team> = arrayListOf(
     Team(0),
     Team(1),
-    Team(2)
+    Team(2),
+    Team(3)
 )
 
 var tournaments: ArrayList<Tournament> = arrayListOf(
     Tournament(0)
 )
 
-var types: ArrayList<String> = arrayListOf("goal", "pass", "yellow card", "red card")
+var types: ArrayList<String> = arrayListOf("goal", "yellow", "red")
 
