@@ -25,7 +25,7 @@ class TeamsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        update()
+//        update()
         val myAdapter = TeamsAdapter(teams, object : TeamsAdapter.Callback {
             override fun onItemClicked(item: Team) {
                 val intent = Intent(context, TeamDescription::class.java).apply {
@@ -51,38 +51,42 @@ class TeamsFragment : Fragment() {
                 } else
                     teams[teams.size - 1].name = editText.text.toString()
                 rv_teams.adapter = myAdapter
-                update()
+//                update()
             }
             builder.show()
             rv_teams.adapter = myAdapter
-            update()
+//            update()
         }
-    }
 
-    fun update() {
-        val availableTeams = arrayListOf<Team>()
-        for (i in teams) {
-            if (i.countOfPlayers!! < i.maxPlayers) {
-                availableTeams.add(i)
-            }
-        }
-        for (i in players) {
-            if (i.teamId == -1) {
-                val r = (0 until availableTeams.size).random()
-                i.setTeam(availableTeams[r].id)
-            }
-        }
-        for (i in teams) {
-            if (i.countOfPlayers == i.maxPlayers) {
-                continue
-            } else {
-                i.teamPlayers.clear()
-                for (j in players) {
-                    if (j.teamId == i.id) {
-                        i.teamPlayers.add(j)
-                    }
-                }
-            }
+        teams_refresh.setOnClickListener{
+            rv_teams.adapter = myAdapter
         }
     }
+//
+//    fun update() {
+//        val availableTeams = arrayListOf<Team>()
+//        for (i in teams) {
+//            if (i.countOfPlayers!! < i.maxPlayers) {
+//                availableTeams.add(i)
+//            }
+//        }
+//        for (i in players) {
+//            if (i.teamId == -1) {
+//                val r = (0 until availableTeams.size).random()
+//                i.setTeam(availableTeams[r].id)
+//            }
+//        }
+//        for (i in teams) {
+//            if (i.countOfPlayers == i.maxPlayers) {
+//                continue
+//            } else {
+//                i.teamPlayers.clear()
+//                for (j in players) {
+//                    if (j.teamId == i.id) {
+//                        i.teamPlayers.add(j)
+//                    }
+//                }
+//            }
+//        }
+//    }
 }

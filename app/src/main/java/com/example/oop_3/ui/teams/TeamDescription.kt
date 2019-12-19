@@ -3,6 +3,7 @@ package com.example.oop_3.ui.teams
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.oop_3.*
 import com.example.oop_3.ui.players.Player
@@ -32,5 +33,20 @@ class TeamDescription : AppCompatActivity() {
         })
         rv_team_players.adapter = myAdapter
         rv_team_players.layoutManager = LinearLayoutManager(this)
+        add_player_to_team.setOnClickListener {
+            if (team.teamPlayers.size < team.maxPlayers) {
+                for (i in players.sortedBy { it.name }) {
+                    if (i.teamId == -1) {
+                        team.teamPlayers.add(i)
+                        i.teamId = id
+                        rv_team_players.adapter = myAdapter
+                        break
+                    }
+                }
+            } else
+                Toast.makeText(this, "This team is full", Toast.LENGTH_SHORT).show()
+            rv_team_players.adapter = myAdapter
+            team_players_d.text = "Players: ${team.teamPlayers.size} / 5"
+        }
     }
 }

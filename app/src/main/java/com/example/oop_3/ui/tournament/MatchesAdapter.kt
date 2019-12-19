@@ -22,8 +22,11 @@ class MatchesAdapter(var items: ArrayList<Match>, val callback: Callback) : Recy
     inner class MainHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Match) {
             itemView.match_id.text = "Match ${adapterPosition + 1}"
-            itemView.match_team_first.text = item.match.first.name
-            itemView.match_team_second.text = item.match.second.name
+            if (adapterPosition == items.size - 1) {
+                itemView.match_id.text = "Final"
+            }
+            itemView.match_team_first.text = item.match.first?.name ?: "not defined"
+            itemView.match_team_second.text = item.match.second?.name ?: "not defined"
             itemView.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) callback.onItemClicked(items[adapterPosition])
             }

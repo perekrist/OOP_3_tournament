@@ -26,7 +26,7 @@ class PlayersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        update()
+//        update()
         val myAdapter = PlayersAdapter(players, object : PlayersAdapter.Callback {
             override fun onItemClicked(item: Player) {
                 val intent = Intent(context, PlayerDescription::class.java).apply {
@@ -60,42 +60,42 @@ class PlayersFragment : Fragment() {
                         )
                     )
                 rv_players.adapter = myAdapter
-                update()
+//                update()
             }
             builder.show()
             rv_players.adapter = myAdapter
-            update()
+//            update()
         }
     }
 
-    fun update() {
-        var availableTeams = arrayListOf<Team>()
-        availableTeams.clear()
-        for (i in teams) {
-            if (i.countOfPlayers!! < i.maxPlayers) {
-                availableTeams.add(i)
-            }
-        }
-        for (i in players) {
-            if (i.teamId == -1) {
-                val r = (0 until availableTeams.size).random()
-                println(r)
-                println(availableTeams)
-                i.setTeam(availableTeams[r].id)
-            }
-        }
-        for (i in teams) {
-            if (i.countOfPlayers!! >= i.maxPlayers) {
-                println("error")
-            } else {
-                i.teamPlayers.clear()
-                for (j in players) {
-                    if (j.teamId == i.id) {
-                        i.teamPlayers.add(j)
-                    }
-                }
-            }
-        }
-        availableTeams.clear()
-    }
+//    fun update() {
+//        var availableTeams = arrayListOf<Team>()
+//        availableTeams.clear()
+//        for (i in teams) {
+//            if (i.countOfPlayers!! < i.maxPlayers) {
+//                availableTeams.add(i)
+//            }
+//        }
+//        for (i in players) {
+//            if (i.teamId == -1) {
+//                val r = (0 until availableTeams.size).random()
+//                println(r)
+//                println(availableTeams)
+//                i.setTeam(availableTeams[r].id)
+//            }
+//        }
+//        for (i in teams) {
+//            if (i.countOfPlayers!! >= i.maxPlayers) {
+//                println("error")
+//            } else {
+//                i.teamPlayers.clear()
+//                for (j in players) {
+//                    if (j.teamId == i.id) {
+//                        i.teamPlayers.add(j)
+//                    }
+//                }
+//            }
+//        }
+//        availableTeams.clear()
+//    }
 }

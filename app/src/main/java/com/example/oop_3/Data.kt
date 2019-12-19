@@ -27,3 +27,5 @@ var tournaments: ArrayList<Tournament> = arrayListOf(
     Tournament(0)
 )
 
+var types: ArrayList<String> = arrayListOf("goal", "pass", "yellow card", "red card")
+
