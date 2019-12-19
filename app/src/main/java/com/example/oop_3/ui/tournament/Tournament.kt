@@ -4,6 +4,11 @@ import com.example.oop_3.ui.match.Event
 import com.example.oop_3.ui.teams.Team
 
 class Tournament (var id: Int) {
-    var teamsT: ArrayList<Team>? = null
-    var matches: ArrayList<Event> = arrayListOf()
+    var teamsT: ArrayList<Team> = arrayListOf()
+    var matches: ArrayList<Match> = arrayListOf()
+}
+
+class Match(var match: Pair<Team, Team>) {
+    var id: Int? = null
+    var events: ArrayList<Event> = arrayListOf()
 }
